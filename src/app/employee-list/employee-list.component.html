@@ -1,0 +1,32 @@
+<div class="container">
+
+        <table class="table" *ngIf = "employees && employees.length > 0  else elseBlock">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Employee Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let employee of employees">
+                <td> {{employee.empId}} </td>
+                <td> {{employee.empName}} </td>
+                <td> {{employee.empEmail}} </td>
+                <td> {{employee.empPhone}} </td>
+                <td> 
+                <button type="button" class="btn btn-large btn-block btn-primary" (click) = onDelete(employee) >Delete</button>
+                </td>
+                <td>
+                </tr>
+            </tbody>
+        </table>
+        <ng-template #elseBlock>
+            <h4 align = "center"> No more employees, please add the employees! </h4>
+        </ng-template>
+            
+    </div>
+    

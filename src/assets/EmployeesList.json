@@ -1,0 +1,23 @@
+[
+    
+    {
+        "empId":1,
+        "empName":"Joe",
+        "empEmail":"joe@yahoo.com",   
+        "empPhone": 662343
+    },
+
+    {
+        "empId":2,
+        "empName":"Tom",
+        "empEmail":"tom@hotmail.com",
+        "empPhone": 566356
+    }, 
+    {
+        "empId":3,
+        "empName":"Smith",
+        "empEmail":"smith@gmail.com",
+        "empPhone": 662343
+    }
+
+]

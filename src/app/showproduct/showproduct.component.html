@@ -1,0 +1,29 @@
+<div class="container">
+
+    <table class="table" *ngIf = "products && products.length > 0  else elseBlock">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>product Name</th>
+                <th>Price</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let product of products">
+            <td> {{product.id}} </td>
+            <td> {{product.name}} </td>
+            <td>{{product.price}}</td>
+            <td> 
+            <button type="button" class="btn btn-large btn-block btn-primary" (click) = onDelete(product) >Delete</button>
+            </td>
+            <td>
+            </tr>
+        </tbody>
+    </table>
+    <ng-template #elseBlock>
+        <h4 align = "center"> No more products, please add the products! </h4>
+    </ng-template>
+        
+</div>

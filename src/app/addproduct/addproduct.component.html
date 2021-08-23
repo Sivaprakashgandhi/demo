@@ -1,0 +1,72 @@
+<div class="container">
+
+    <h3>Add product</h3>
+
+    <form #userForm="ngForm" (ngSubmit)='onSubmit(userForm.value)'>
+
+        <div class="form-group">
+
+            <label>product id: </label>
+
+            <input required type="text" #idRef='ngModel' pattern="[0-9]{2,}" name="id" ngModel
+                class="form-control">
+
+            <div *ngIf='idRef.errors && idRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!idRef.errors.required'> Provide product Id </div>
+
+                <div *ngIf='idRef.errors.pattern'>product Id should be 3 digit only</div>
+
+            </div>
+        </div>
+
+    
+
+        <div class="form-group">
+
+            <label>product Name: </label>
+
+            <input required type="text" #nameRef='ngModel' name="name" ngModel class="form-control">
+
+            <div *ngIf='nameRef.errors
+                        && nameRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!nameRef.errors.required'>
+
+                    Provide product Name
+                </div>
+            </div>
+
+        </div>
+
+   <div class="form-group">
+
+            <label>price</label>
+
+            <input required minlength="2" pattern="[0-9]{3,}" type="text" #priceRef='ngModel'
+                name="price" ngModel class="form-control">
+
+            <div *ngIf='priceRef.errors
+                && priceRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!priceRef.errors.required'>
+
+                    Provide price
+
+                </div>
+
+                <div [hidden]='!priceRef.errors.pattern'>Email should be a 4 characters
+                </div>
+
+            </div>
+
+
+        </div>
+ 
+
+        <input [disabled]="userForm.invalid" type="submit" value="Add product" class="btn btn-primary">
+
+    </form>
+<p *ngIf="userForm.invalid">INVALID</p>
+<p *ngIf="!userForm.invalid">VALID</p>
+</div>

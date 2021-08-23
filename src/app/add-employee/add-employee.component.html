@@ -1,0 +1,91 @@
+<div class="container">
+
+        <h3>Add Employee</h3>
+    
+        <form #userForm="ngForm" (ngSubmit)='onSubmit(userForm.value)'>
+    
+            <div class="form-group">
+    
+                <label>Employee id: </label>
+    
+                <input required type="text" #empIdRef='ngModel' pattern="[0-9]{1}" name="empId" ngModel
+                    class="form-control">
+    
+                <div *ngIf='empIdRef.errors && empIdRef.touched' class="alert alert-danger">
+    
+                    <div [hidden]='!empIdRef.errors.required'> Provide Employee Id </div>
+    
+                    <div *ngIf='empIdRef.errors.pattern'>Employee Id should be 1 digit only</div>
+    
+                </div>
+            </div>
+    
+        
+    
+            <div class="form-group">
+    
+                <label>Employee Name: </label>
+    
+                <input required type="text" #empNameRef='ngModel' name="empName" ngModel class="form-control">
+    
+                <div *ngIf='empNameRef.errors
+                            && empNameRef.touched' class="alert alert-danger">
+    
+                    <div [hidden]='!empNameRef.errors.required'>
+    
+                        Provide Employee Name
+                    </div>
+                </div>
+    
+            </div>
+    
+       <div class="form-group">
+    
+                <label>Email: </label>
+    
+                <input required minlength="2" pattern="[A-Za-z//@//.com]{2,}" type="text" #empEmailRef='ngModel'
+                    name="empEmail" ngModel class="form-control">
+    
+                <div *ngIf='empEmailRef.errors
+                    && empEmailRef.touched' class="alert alert-danger">
+    
+                    <div [hidden]='!empEmailRef.errors.required'>
+    
+                        Provide Email
+    
+                    </div>
+    
+                    <div [hidden]='!empEmailRef.errors.pattern'>Email should be a minimum of 2 characters
+                    </div>
+    
+                </div>
+    
+    
+            </div>
+    
+            <div class="form-group">
+    
+                <label>Phone: </label>
+    
+                <input required type="number" #empPhoneRef='ngModel' pattern="[0-9]{10}" name="empPhone" ngModel
+                    class="form-control">
+    
+                <div *ngIf='empPhoneRef.errors
+                        && empPhoneRef.touched' class="alert alert-danger">
+    
+                    <div [hidden]='!empPhoneRef.errors.required'>
+    
+                        Provide Phone Number
+    
+                    </div>
+    
+                </div>
+    
+            </div> 
+    
+            <input [disabled]="userForm.invalid" type="submit" value="Add Employee" class="btn btn-primary">
+    
+        </form>
+    <p *ngIf="userForm.invalid">INVALID</p>
+    <p *ngIf="!userForm.invalid">VALID</p>
+    </div>
